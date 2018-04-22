@@ -1,0 +1,40 @@
+version: "2"
+services:
+  db:
+    image: mysql/mysql-server:$MYSQL_TAG
+    restart: always
+    environment:
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+    volumes:
+      - "/opt/${PROJECT_NAME}_mysqldata:/var/lib/mysql"
+    container_name: "${PROJECT_NAME}_db"
+    networks:
+      - dockernet
+  web:
+    image: $WEB_IMAGE
+    restart: always
+    ports:
+      - "${NETWORK_PORT}:80"
+    depends_on:
+      - db
+    volumes:
+      - ./sites/all/drush:/var/www/web/sites/all/drush
+      - ./sites/all/libraries:/var/www/web/sites/all/libraries
+      - ./sites/all/modules:/var/www/web/sites/all/modules
+      - ./sites/all/themes:/var/www/web/sites/all/themes
+      - ./sites/default/files:/var/www/web/sites/default/files
+      - ./sites/default/modules:/var/www/web/sites/default/modules
+      - ./sites/default/settings.php:/var/www/web/sites/default/settings.php
+      - ./sites/default/themes:/var/www/web/sites/default/themes
+    container_name: "${PROJECT_NAME}_web"
+    networks:
+      - dockernet
+networks:
+  dockernet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${NETWORK_SUBNET}
+          gateway: ${NETWORK_GATEWAY}
