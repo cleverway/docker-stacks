@@ -14,3 +14,6 @@ script:
   - docker-compose up -d
   - sleep 10
   - docker exec -u user -w /var/www/web drupal-8_web drush si standard -y --db-url=mysql://drupal:drupal@db:3306/drupal
+
+notifications:
+  email: false
