@@ -1,5 +1,6 @@
 files/*
 modules/*
+mysql
 profiles/*
 themes/*
 !files/.gitkeep
