@@ -1,0 +1,8 @@
+files/*
+modules/*
+profiles/*
+themes/*
+!files/.gitkeep
+!modules/.gitkeep
+!profiles/.gitkeep
+!themes/.gitkeep
