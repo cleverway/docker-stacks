@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get -y install docker-ce
 
 script:
-  - make all
+  - make test
 
 notifications:
   email: false
