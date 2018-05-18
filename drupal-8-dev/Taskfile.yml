@@ -1,0 +1,17 @@
+version: '2'
+
+tasks:
+  install:
+    cmds:
+      - chmod 777 files settings.php
+      - docker-compose up -d
+      - sleep 10
+      - docker exec -u user -w /var/www/web drupal-8-dev_web drush si standard -y --db-url=mysql://drupal:drupal@db:3306/drupal
+
+  start:
+    cmds:
+      - docker-compose up -d
+
+  stop:
+    cmds:
+      - docker-compose down

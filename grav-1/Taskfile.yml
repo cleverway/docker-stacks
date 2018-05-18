@@ -1,0 +1,15 @@
+version: '2'
+
+tasks:
+  install:
+    cmds:
+      - chmod 777 backup
+      - docker-compose up -d
+
+  start:
+    cmds:
+      - docker-compose up -d
+
+  stop:
+    cmds:
+      - docker-compose down

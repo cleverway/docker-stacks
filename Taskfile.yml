@@ -1,0 +1,24 @@
+version: '2'
+
+tasks:
+  test:
+    cmds:
+      - task: install
+      - task: test-http
+      - task: stop
+
+  install:
+    cmds:
+      - cd {{.STACK}} && task install
+
+  start:
+    cmds:
+      - cd {{.STACK}} && task start
+
+  stop:
+    cmds:
+      - cd {{.STACK}} && task stop
+
+  test-http:
+    cmds:
+      - curl -I http://localhost:8080/
