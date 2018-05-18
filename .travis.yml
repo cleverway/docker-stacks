@@ -10,10 +10,10 @@ before_install:
   - curl -s https://raw.githubusercontent.com/go-task/task/master/install-task.sh | sh
 
 script:
-  - STACK=drupal-7 task test
-  - STACK=drupal-8 task test
-  - STACK=drupal-8-dev task test
-  - STACK=grav-1 task test
+  - STACK=drupal-7 ./bin/task test
+  - STACK=drupal-8 ./bin/task test
+  - STACK=drupal-8-dev ./bin/task test
+  - STACK=grav-1 ./bin/task test
 
 notifications:
   email: false
