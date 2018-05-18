@@ -7,8 +7,7 @@ before_install:
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
-  - curl -s https://raw.githubusercontent.com/go-task/task/master/install-task.sh | sh
-  - export PATH="$HOME/bin:$PATH"
+  - sudo go get -u -v github.com/go-task/task/cmd/task
 
 script:
   - STACK=drupal-7 task test
