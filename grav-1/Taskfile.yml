@@ -2,14 +2,17 @@ version: '2'
 
 tasks:
   install:
+    desc: Install stack
     cmds:
       - chmod 777 backup
       - docker-compose up -d
 
   start:
+    desc: Start stack
     cmds:
       - docker-compose up -d
 
   stop:
+    desc: Stop stack
     cmds:
       - docker-compose down
