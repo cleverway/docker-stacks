@@ -7,6 +7,12 @@ tasks:
       - task: test-http
       - task: stop
 
+  download:
+    cmds:
+      - git clone https://github.com/cleverway/docker-stacks.git
+      - mv docker-stacks/{{.STACK}} .
+      - rm -rf docker-stacks/
+
   install:
     cmds:
       - cd {{.STACK}} && task install
