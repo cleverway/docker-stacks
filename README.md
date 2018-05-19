@@ -15,6 +15,6 @@ export STACK=grav-1
 wget https://raw.githubusercontent.com/cleverway/docker-stacks/master/Taskfile.yml && task download && cd $STACK && task install
 ```
 
-List available tasks via `task ls`.
+List available tasks via `task -l`.
 
 [task]: https://github.com/go-task/task
